@@ -15,7 +15,18 @@ def lcs(str1, str2):
                     t[i][j] = max(t[i-1][j], t[i][j-1])
     return t[len(str1)-1][len(str2)-1]
 
+def lc_substring(s1, s2):
+    t = [[0]* (len(s2) + 1) for i in range(len(s1) + 1)]
+    max_val = 0
+    for i in range(len(s1)-1, -1, -1):
+        for j in range(len(s2)-1, -1 , -1):
+            if s1[i] == s2[j]:
+                t[i][j] = (t[i+1][j+1] + 1)
+
+            max_val = max(max_val, t[i][j])
+    return max_val
+
 if __name__ == "__main__":
     str1 = raw_input("Enter the first string: ")
     str2 = raw_input("Enter the second string: ")
-    print lcs(str1, str2)
+    print lc_substring(str1, str2)
