@@ -32,5 +32,5 @@ def roman(roman):
     return total
 
 if __name__ == "__main__":
-    roman = raw_input("Enter the roman numeral:")
-    print roman_to_int(roman)
+    r= raw_input("Enter the roman numeral:")
+    print roman(r)
