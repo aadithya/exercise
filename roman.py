@@ -31,6 +31,20 @@ def roman(roman):
 
     return total
 
+def try_again(r):
+    r_map = {'I':1,'V':5 , 'X': 10, 'L': 50, 'C':100, 'IV':4, 'VI':6, 'IX':9, 'XI':11,'XL': 40 , 'LX': 60, 'XC':90, 'CX': 110}
+    prev = curr = r_map[r[0]]
+    total = 0
+    for i in r:
+        curr = r_map[i]
+        if curr <= prev:
+            total += curr
+        else:
+            total += curr - 2*prev
+        prev = curr
+    return total
+
+
 if __name__ == "__main__":
     r= raw_input("Enter the roman numeral:")
-    print roman(r)
+    print try_again(r)
